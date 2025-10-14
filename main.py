@@ -4,6 +4,11 @@
 """
 
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 
 # Function that changes the temperature to celsiul, and allows to have only 2 digits after the intenger number, using round
 def change_to_celsius(temp_in_kelvin):
@@ -13,12 +18,12 @@ def change_to_celsius(temp_in_kelvin):
 def get_info():
     print("Thank you for choosing out app. For getting informations about the weather introduce the name of the city:")
     city=input()
-    return city
+    return cityB
 
 # Function that calls the OpenWeatherAPI and returns the json file if everything went great or None if there was a problem
 def api_call(city_name):
     base_url="https://api.openweathermap.org/data/2.5/weather?"
-    key="1a96893db020a346f3355d7bb78a2f04"
+    key=os.getenv("URL_KEY")
     url=base_url+f"q={city_name}"+"&"+"lang=en"+"&"+f"appid={key}"
 
     response=requests.get(url)
