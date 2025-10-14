@@ -18,7 +18,7 @@ def change_to_celsius(temp_in_kelvin):
 def get_info():
     print("Thank you for choosing out app. For getting informations about the weather introduce the name of the city:")
     city=input()
-    return cityB
+    return city
 
 # Function that calls the OpenWeatherAPI and returns the json file if everything went great or None if there was a problem
 def api_call(city_name):
